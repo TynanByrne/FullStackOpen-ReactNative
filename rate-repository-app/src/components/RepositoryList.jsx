@@ -1,11 +1,16 @@
 import React from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
+import theme from '../theme';
 import RepositoryItem from './RepositoryItem';
 
 const styles = StyleSheet.create({
   separator: {
     height: 10,
+    backgroundColor: theme.colors.primary,
   },
+  item: {
+    backgroundColor: theme.colors.backgroundPrimary,
+  }
 });
 
 const repositories = [
@@ -72,6 +77,8 @@ const RepositoryList = () => {
               stargazersCount={item.stargazersCount}
               ratingAverage={item.ratingAverage}
               reviewCount={item.reviewCount}
+              url={item.ownerAvatarUrl}
+              style={styles.item}
             />
           </View>
       )}

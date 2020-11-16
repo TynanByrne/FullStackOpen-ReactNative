@@ -1,16 +1,42 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import RepoItemMain from './RepoItemMain';
+import RepoItemLanguage from './RepoItemLanguage';
+import RepoItemInfo from './RepoItemInfo';
+
+const styles = StyleSheet.create({
+  main: {
+    display: 'flex',
+    justifyContent: 'space-around',
+
+  },
+  imageColumn: {
+    flexGrow: 0.2,
+  },
+  titleColumn: {
+    flexGrow: 0.8,
+  },
+  info: {
+    justifyContent: 'space-evenly',
+  }
+});
 
 const RepositoryItem = (props) => {
   return (
-    <View style={{ backgroundColor: 'white' }}>
-      <Text>Full name: {props.fullName}</Text>
-      <Text>Description: {props.description}</Text>
-      <Text>Language: {props.language}</Text>
-      <Text>Fork count: {props.forksCount}</Text>
-      <Text>Stargazers count: {props.stargazersCount}</Text>
-      <Text>Rating average: {props.ratingAverage}</Text>
-      <Text>Review count: {props.reviewCount}</Text>
+    <View style={props.style}>
+      <RepoItemMain
+        fullName={props.fullName}
+        url={props.url}
+        description={props.description}
+        styles={styles} />
+      <RepoItemLanguage styles={styles} language={props.language} />
+      <RepoItemInfo
+        forksCount={props.forksCount}
+        stargazersCount={props.stargazersCount}
+        ratingAverage={props.ratingAverage}
+        reviewCount={props.reviewCount}
+        styles={styles}
+      />
     </View>
   );
 };
