@@ -1,14 +1,17 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, StyleSheet } from 'react-native';
 import Text from './Text';
 
 const RepoItemMain = ({ styles, url, fullName, description }) => {
-  console.log(url);
+  const imageStyle = StyleSheet.create({
+    width: 80,
+    height: 80,
+  });
   return (
-    <View>
+    <View style={styles.main}>
       <View style={styles.imageColumn}>
         <Image
-        style={{width: 100, height: 100 }}
+        style={imageStyle}
         source={{ uri: `${url}` }} />
       </View>
       <View style={styles.titleColumn}>

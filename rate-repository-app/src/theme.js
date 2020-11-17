@@ -8,9 +8,9 @@ const theme = {
     backgroundPrimary: '#FDFFFC'
   },
   fontSizes: {
-    body: 14,
-    subheading: 16,
-    heading: 20,
+    body: 18,
+    subheading: 20,
+    heading: 24,
   },
   fonts: {
     main: 'System',
