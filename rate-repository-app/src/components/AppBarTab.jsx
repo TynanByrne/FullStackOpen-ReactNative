@@ -5,6 +5,7 @@ import { Link } from 'react-router-native';
 
 const scrollViewStyle = {
   flexDirection: 'row',
+  flexGrow: 1,
 };
 
 const AppBarTab = ({ style }) => {
@@ -12,59 +13,37 @@ const AppBarTab = ({ style }) => {
     <View style={style}>
       <ScrollView horizontal style={scrollViewStyle}>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
         <Link to='/signin' component={TouchableHighlight}>
-          <View>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
-          </View>
         </Link>
       </ScrollView>
     </View>

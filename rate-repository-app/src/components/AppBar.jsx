@@ -13,17 +13,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: theme.colors.primary,
-    flexShrink: 0,
   },
   appTitle: {
-    flexGrow: 1,
-    padding: 10,
-    marginRight: 'auto',
-    width: 'auto',
-  },
-  appBarTabs: {
     flexGrow: 0,
     padding: 10,
+    flexShrink: 0,
+  },
+  appBarTabs: {
+    flexGrow: 1,
+    padding: 10,
+    flex: 1
   },
 });
 
@@ -33,12 +32,10 @@ const AppBar = () => {
       <View style={styles.container}>
         <View style={styles.appTitle}>
           <Link to='/' component={TouchableHighlight}>
-            <View>
               <Text fontSize='heading' color='secondary'>Repository Rater</Text>
-            </View>
           </Link>
-          <AppBarTab style={styles.appBarTabs} />
         </View>
+        <AppBarTab style={styles.appBarTabs} />
       </View>
     </TouchableWithoutFeedback>
   );
