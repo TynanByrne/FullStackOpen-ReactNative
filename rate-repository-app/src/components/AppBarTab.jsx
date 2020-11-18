@@ -15,36 +15,6 @@ const AppBarTab = ({ style }) => {
         <Link to='/signin' component={TouchableHighlight}>
             <Text fontSize='subheading' color='secondary'>Sign In</Text>
         </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
-        <Link to='/signin' component={TouchableHighlight}>
-            <Text fontSize='subheading' color='secondary'>Sign In</Text>
-        </Link>
       </ScrollView>
     </View>
   );
