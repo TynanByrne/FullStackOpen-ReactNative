@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 
 import FormikTextInput from './FormikTextInput';
 import Text from './Text';
-import theme from '../theme'
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   form: {
@@ -13,18 +13,21 @@ const styles = StyleSheet.create({
   },
   formInput: {
     borderStyle: 'solid',
-    borderRadius: 1,
+    borderWidth: 2,
+    borderColor: theme.colors.textPrimary,
+    borderRadius: 10,
     padding: 20,
     marginHorizontal: 40,
+    marginVertical: 15,
   },
   formSubmitButton: {
     backgroundColor: theme.colors.secondary,
-    borderRadius: 1,
+    borderRadius: 10,
     padding: 20,
-    marginHorizontal: 40
+    marginHorizontal: 40,
+    marginVertical: 15,
   }
-
-})
+});
 
 const onSubmit = (values) => {
   console.log(values);
