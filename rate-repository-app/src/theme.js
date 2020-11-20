@@ -5,7 +5,8 @@ const theme = {
     textWashed: '#586069',
     primary: '#011627',
     secondary: '#2EC4B6',
-    backgroundPrimary: '#FDFFFC'
+    backgroundPrimary: '#FDFFFC',
+    error: '#D73A4A'
   },
   fontSizes: {
     body: 18,
