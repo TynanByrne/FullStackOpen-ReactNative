@@ -10,10 +10,11 @@ const useRepositories = () => {
   const repositoryResult = useQuery(GET_REPOSITORIES, {
     fetchPolicy: 'cache-and-network'
   });
-  const { called, loading, data, refetch } = repositoryResult;
+  const { called, loading, networkStatus, data, refetch } = repositoryResult;
+  console.log(data);
 
   useEffect(() => {
-    if (called) {
+    if (called & networkStatus > 6) {
       const fetchedRepositories = data ? data.repositories : [];
       setRepositories(fetchedRepositories);
     }
