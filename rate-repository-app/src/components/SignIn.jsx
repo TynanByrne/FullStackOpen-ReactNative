@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Formik } from 'formik';
+import { useHistory } from 'react-router-native';
 import * as yup from 'yup';
 
-import FormikTextInput from './FormikTextInput';
-import Text from './Text';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
+import SignInForm from './SignInForm';
 
 const styles = StyleSheet.create({
   form: {
@@ -48,35 +48,17 @@ const initialValues = {
   password: '',
 };
 
-const SignInForm = ({ onSubmit }) => {
-  return (
-    <View style={styles.form}>
-      <FormikTextInput 
-        name='username'
-        placeholder='Username'
-        formStyles={styles} />
-      <FormikTextInput
-        name='password'
-        placeholder='Password'
-        formStyles={styles}
-        secureTextEntry />
-      <View style={styles.formSubmitButton}>
-        <TouchableWithoutFeedback onPress={onSubmit}>
-          <Text>Sign in</Text>
-        </TouchableWithoutFeedback>
-      </View>
-    </View>
-  );
-};
 
 const SignIn = () => {
   const [signIn] = useSignIn();
+  const history = useHistory();
   const onSubmit = async (values) => {
     const { username, password } = values;
 
     try {
-      const { data } = await signIn({ username, password });
+      const data = await signIn({ username, password });
       console.log(data);
+      history.push('/');
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +68,7 @@ const SignIn = () => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}>
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+      {({ handleSubmit }) => <SignInForm styles={styles} onSubmit={handleSubmit} />}
     </Formik>
   );
 };

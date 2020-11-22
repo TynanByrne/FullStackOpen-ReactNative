@@ -5,8 +5,6 @@ import { GET_REPOSITORIES } from '../graphql/queries';
 
 const useRepositories = () => {
   const [repositories, setRepositories] = useState();
-
-  // Replace the IP address part with your own IP address!
   const repositoryResult = useQuery(GET_REPOSITORIES, {
     fetchPolicy: 'cache-and-network'
   });
