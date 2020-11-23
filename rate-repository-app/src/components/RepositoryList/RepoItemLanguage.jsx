@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import theme from '../theme';
-import Text from './Text';
+import theme from '../../theme';
+import Text from '../Text';
 
 const textStyle = {
     backgroundColor: theme.colors.secondary,

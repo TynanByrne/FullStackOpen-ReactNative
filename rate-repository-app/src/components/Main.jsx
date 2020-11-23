@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-native';
 import { StyleSheet, View } from 'react-native';
-import RepositoryList from './RepositoryList';
+import RepositoryList from './RepositoryList/index';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
 import theme from '../theme';

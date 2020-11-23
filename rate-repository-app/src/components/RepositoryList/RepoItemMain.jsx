@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
-import Text from './Text';
+import Text from '../Text';
 
 const RepoItemMain = ({ styles, url, fullName, description }) => {
   const imageStyle = StyleSheet.create({
