@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Formik } from 'formik';
 import { useHistory } from 'react-router-native';
 import * as yup from 'yup';
 
-import theme from '../theme';
-import useSignIn from '../hooks/useSignIn';
-import SignInForm from './SignInForm';
+import theme from '../../theme';
+import useSignIn from '../../hooks/useSignIn';
+import SignInContainer from './SignInContainer';
 
 const styles = StyleSheet.create({
   form: {
@@ -43,12 +42,6 @@ const validationSchema = yup.object().shape({
 });
 
 
-const initialValues = {
-  username: '',
-  password: '',
-};
-
-
 const SignIn = () => {
   const [signIn] = useSignIn();
   const history = useHistory();
@@ -64,12 +57,10 @@ const SignIn = () => {
     }
   };
   return (
-    <Formik
-      initialValues={initialValues}
+    <SignInContainer
+      validationSchema={validationSchema}
       onSubmit={onSubmit}
-      validationSchema={validationSchema}>
-      {({ handleSubmit }) => <SignInForm styles={styles} onSubmit={handleSubmit} />}
-    </Formik>
+      styles={styles} />
   );
 };
 

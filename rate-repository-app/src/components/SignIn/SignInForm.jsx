@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import FormikTextInput from './FormikTextInput';
-import Text from './Text';
+import FormikTextInput from '../FormikTextInput';
+import Text from '../Text';
 
 const SignInForm = ({ onSubmit, styles }) => {
   return (

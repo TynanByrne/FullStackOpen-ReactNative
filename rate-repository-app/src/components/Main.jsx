@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-native';
 import { StyleSheet, View } from 'react-native';
 import RepositoryList from './RepositoryList/index';
 import AppBar from './AppBar';
-import SignIn from './SignIn';
+import SignIn from './SignIn/SignIn';
 import theme from '../theme';
 const styles = StyleSheet.create({
   container: {
