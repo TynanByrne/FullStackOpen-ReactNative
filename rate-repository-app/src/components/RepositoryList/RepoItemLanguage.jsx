@@ -18,7 +18,7 @@ const RepoItemLanguage = ({ styles, language }) => {
 
       </View>
       <View style={styles.titleColumn}>
-        <Text style={textStyle}>{language}</Text>
+        <Text style={textStyle} testID='language'>{language}</Text>
       </View>
     </View>
   );

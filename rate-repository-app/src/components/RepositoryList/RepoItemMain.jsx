@@ -15,8 +15,8 @@ const RepoItemMain = ({ styles, url, fullName, description }) => {
         source={{ uri: `${url}` }} />
       </View>
       <View style={styles.titleColumn}>
-        <Text fontSize='subheading' fontWeight='bold' >{fullName}</Text>
-        <Text fontWeight='washed'>{description}</Text>
+        <Text fontSize='subheading' fontWeight='bold' testID='fullName'>{fullName}</Text>
+        <Text fontWeight='washed' testID='description'>{description}</Text>
       </View>
     </View>
   );
