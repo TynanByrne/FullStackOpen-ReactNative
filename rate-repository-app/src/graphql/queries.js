@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 import { REPOSITORY_DETAILS } from './fragments';
- 
+
 export const GET_REPOSITORIES = gql`
   query GET_REPOSITORIES{
     repositories {
@@ -22,3 +22,13 @@ export const AUTHORIZED_USER = gql`
     }
   }
 `;
+
+export const FETCH_REPO = gql`
+  query FETCH_REPO($id: ID!) {
+    repository(id: $id) {
+      url
+      ...repositoryDetails
+    }
+  }
+  ${REPOSITORY_DETAILS}
+`

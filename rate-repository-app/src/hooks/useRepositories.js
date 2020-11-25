@@ -9,7 +9,6 @@ const useRepositories = () => {
     fetchPolicy: 'cache-and-network'
   });
   const { called, loading, networkStatus, data, refetch } = repositoryResult;
-  console.log(data);
 
   useEffect(() => {
     if (called & networkStatus > 6) {

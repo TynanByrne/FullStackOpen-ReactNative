@@ -5,6 +5,7 @@ import RepositoryList from './RepositoryList/index';
 import AppBar from './AppBar';
 import SignIn from './SignIn/SignIn';
 import theme from '../theme';
+import SingleRepository from './SingleRepository';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.mainBackground,
@@ -23,6 +24,9 @@ const Main = () => {
         </Route>
         <Route path='/signin'>
           <SignIn />
+        </Route>
+        <Route path='/repository/:id' exact>
+          <SingleRepository />
         </Route>
         <Redirect to='/' />
       </Switch>

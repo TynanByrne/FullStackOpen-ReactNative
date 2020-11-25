@@ -1,5 +1,6 @@
 import React from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
+import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Link } from 'react-router-native';
 import theme from '../../theme';
 import RepositoryItem from './RepositoryItem';
 
@@ -26,19 +27,21 @@ const RepositoryListContainer = ({ repositories }) => {
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item }) => (
-        <View key={item.id}>
-          <RepositoryItem
-            fullName={item.fullName}
-            description={item.description}
-            language={item.language}
-            forksCount={item.forksCount}
-            stargazersCount={item.stargazersCount}
-            ratingAverage={item.ratingAverage}
-            reviewCount={item.reviewCount}
-            url={item.ownerAvatarUrl}
-            style={styles.item}
-          />
-        </View>
+        <Link to={`/repository/${item.id}`} component={TouchableOpacity}>
+          <View key={item.id}>
+            <RepositoryItem
+              fullName={item.fullName}
+              description={item.description}
+              language={item.language}
+              forksCount={item.forksCount}
+              stargazersCount={item.stargazersCount}
+              ratingAverage={item.ratingAverage}
+              reviewCount={item.reviewCount}
+              url={item.ownerAvatarUrl}
+              style={styles.item}
+            />
+          </View>
+        </Link >
       )}
     />
   );

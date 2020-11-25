@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import RepoItemMain from './RepoItemMain';
 import RepoItemLanguage from './RepoItemLanguage';
 import RepoItemInfo from './RepoItemInfo';
+import * as Linking from 'expo-linking';
+import theme from '../../theme';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   main: {
     display: 'flex',
     flexDirection: 'row',
@@ -36,10 +38,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+  },
+  button: {
+    padding: 20,
+    margin: 10,
+    backgroundColor: theme.colors.secondary,
+    color: theme.colors.backgroundPrimary,
+    borderRadius: 5,
   }
 });
 
+
 const RepositoryItem = (props) => {
+
+  const openGithubPage = () => {
+    Linking.openURL(props.githubUrl)
+  }
   return (
     <View style={props.style}>
       <RepoItemMain
@@ -55,6 +69,11 @@ const RepositoryItem = (props) => {
         reviewCount={props.reviewCount}
         styles={styles}
       />
+      {props.githubLink && (
+        <View style={styles.button}>
+          <Button title='Open in GitHub' onPress={openGithubPage} />
+        </View>
+      )}
     </View>
   );
 };
