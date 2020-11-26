@@ -13,3 +13,12 @@ export const REPOSITORY_DETAILS = gql`
     reviewCount
   }
 `;
+
+export const REVIEW_DETAILS = gql`
+  fragment reviewDetails on Review {
+    id
+    rating
+    createdAt
+    text
+  }
+`;

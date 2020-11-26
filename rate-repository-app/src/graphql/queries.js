@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost';
-import { REPOSITORY_DETAILS } from './fragments';
+import { REPOSITORY_DETAILS, REVIEW_DETAILS } from './fragments';
 
 export const GET_REPOSITORIES = gql`
   query GET_REPOSITORIES{
@@ -28,7 +28,19 @@ export const FETCH_REPO = gql`
     repository(id: $id) {
       url
       ...repositoryDetails
+      reviews {
+        edges {
+          node {
+            ...reviewDetails
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
     }
   }
   ${REPOSITORY_DETAILS}
+  ${REVIEW_DETAILS}
 `
