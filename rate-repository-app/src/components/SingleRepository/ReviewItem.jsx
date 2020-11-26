@@ -7,8 +7,8 @@ import { format } from 'date-fns';
 
 const reviewStyles = StyleSheet.create({
   score: {
-    height: 50,
-    width: 50,
+    height: 70,
+    width: 70,
     borderRadius: 25,
     borderColor: theme.colors.secondary,
     borderWidth: 5,

@@ -28,6 +28,9 @@ const Main = () => {
         <Route path='/repository/:id' exact>
           <SingleRepository />
         </Route>
+        <Route path='/createreview'>
+          <ReviewForm />
+        </Route>
         <Redirect to='/' />
       </Switch>
     </View>

@@ -27,9 +27,14 @@ const AppBarTab = ({ style }) => {
       <ScrollView horizontal style={scrollViewStyle}>
         <>
           {authorizedUser ?
-            <TouchableHighlight onPress={signOut}>
-              <Text fontSize='subheaading' color='secondary'>Sign Out</Text>
-            </TouchableHighlight> :
+            <>
+              <Link to='/createreview' component={TouchableHighlight}>
+                < Text fontSize='subheading' color='secondary'>Create a review</Text>
+              </Link>
+              <TouchableHighlight onPress={signOut}>
+                <Text fontSize='subheading' color='secondary'>Sign Out</Text>
+              </TouchableHighlight>
+            </> :
             <Link to='/signin' component={TouchableHighlight}>
               <Text fontSize='subheading' color='secondary'>Sign In</Text>
             </Link>
