@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import SignIn from './SignIn/SignIn';
 import theme from '../theme';
 import SingleRepository from './SingleRepository';
+import CreateReview from './ReviewForm';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.mainBackground,
@@ -29,7 +30,7 @@ const Main = () => {
           <SingleRepository />
         </Route>
         <Route path='/createreview'>
-          <ReviewForm />
+          <CreateReview />
         </Route>
         <Redirect to='/' />
       </Switch>

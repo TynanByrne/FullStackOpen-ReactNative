@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost';
+import { REVIEW_DETAILS } from './fragments';
 
 export const SIGN_IN = gql`
   mutation authorize($credentials:  AuthorizeInput!) {
@@ -8,8 +9,8 @@ export const SIGN_IN = gql`
   }
 `;
 
-export const createReview = gql`
-  mutation createReview($review: $CreateReviewInput!) {
+export const CREATE_REVIEW = gql`
+  mutation createReview($review: CreateReviewInput!) {
     createReview(review: $review) {
       id
     user {
@@ -27,4 +28,5 @@ export const createReview = gql`
     createdAt
     }
   }
+  ${REVIEW_DETAILS}
 `;
