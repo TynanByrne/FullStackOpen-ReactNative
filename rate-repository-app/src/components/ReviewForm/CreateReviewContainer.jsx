@@ -3,10 +3,10 @@ import { Formik } from 'formik';
 import CreateReviewForm from './CreateReviewForm';
 
 const initialValues = {
-  repositoryOwnerUsername: '',
+  ownerName: '',
   repositoryName: '',
   rating: '',
-  review: '',
+  text: '',
 }
 
 const CreateReviewContainer = ({ styles, validationSchema, onSubmit}) => {

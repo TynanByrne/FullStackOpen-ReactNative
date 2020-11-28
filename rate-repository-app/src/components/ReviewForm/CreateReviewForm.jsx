@@ -7,7 +7,7 @@ const CreateReviewForm = ({ onSubmit, styles }) => {
   return (
     <View style={styles.form}>
       <FormikTextInput
-        name='repositoryOwnerUsername'
+        name='ownerName'
         placeholder='Repository owner username'
         formStyles={styles} />
       <FormikTextInput
@@ -19,15 +19,15 @@ const CreateReviewForm = ({ onSubmit, styles }) => {
         placeholder='Rating (0-100)'
         formStyles={styles} />
       <FormikTextInput
-        name='review'
+        name='text'
         placeholder='Review'
         formStyles={styles}
         multiline />
-      <View style={styles.formSubmitButton}>
-        <TouchableWithoutFeedback onPress={onSubmit}>
+      <TouchableWithoutFeedback onPress={onSubmit}>
+        <View style={styles.formSubmitButton}>
           <Text>Create a review</Text>
-        </TouchableWithoutFeedback>
-      </View>
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   );
 };

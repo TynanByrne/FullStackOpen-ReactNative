@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 });
 
 const validationSchema = yup.object().shape({
-  repositoryOwnerUsername: yup
+  ownerName: yup
     .string()
     .required('Repository owner username is required'),
   repositoryName: yup
@@ -43,7 +43,7 @@ const validationSchema = yup.object().shape({
     .min(0)
     .max(100)
     .integer(),
-  review: yup
+  text: yup
     .string(),
 })
 
@@ -51,11 +51,12 @@ const CreateReview = () => {
   const [createReview, mutationData] = useMutation(CREATE_REVIEW);
   const history = useHistory();
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
+    console.log("Creating review...")
     const {
       repositoryName,
-      repositoryOwnerUsername,
-      review,
+      ownerName,
+      text,
       rating,
     } = values
 
@@ -64,15 +65,15 @@ const CreateReview = () => {
         variables: {
           review: {
             repositoryName,
-            repositoryOwnerUsername,
-            review,
-            rating,
+            ownerName,
+            text,
+            rating: Number.parseInt(rating),
           }
         }
       });
       console.log(reviewData);
-      if (reviewData?.createReview) {
-        history.push(`/repository/${reviewData.createReview.repositoryId}`);
+      if (reviewData?.data?.createReview) {
+        history.push(`/repository/${reviewData.data.createReview.repositoryId}`);
       }
     } catch (err) {
       console.log(err);

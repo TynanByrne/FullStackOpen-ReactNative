@@ -12,20 +12,11 @@ export const SIGN_IN = gql`
 export const CREATE_REVIEW = gql`
   mutation createReview($review: CreateReviewInput!) {
     createReview(review: $review) {
-      id
-    user {
-      id
-      username
-      createdAt
-    }
-    repository {
-      name
-      ownerName
-    }
-    userId
-    repositoryId
-    text
-    createdAt
+      user {
+        username
+      }
+      repositoryId
+      ...reviewDetails
     }
   }
   ${REVIEW_DETAILS}
