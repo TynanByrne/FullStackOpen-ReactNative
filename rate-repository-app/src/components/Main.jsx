@@ -7,6 +7,7 @@ import SignIn from './SignIn/SignIn';
 import theme from '../theme';
 import SingleRepository from './SingleRepository';
 import CreateReview from './ReviewForm';
+import SignUp from './SignUp';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.mainBackground,
@@ -25,6 +26,9 @@ const Main = () => {
         </Route>
         <Route path='/signin'>
           <SignIn />
+        </Route>
+        <Route path='/signup'>
+          <SignUp />
         </Route>
         <Route path='/repository/:id' exact>
           <SingleRepository />

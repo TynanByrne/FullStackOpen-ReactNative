@@ -10,7 +10,11 @@ import AuthStorageContext from '../contexts/AuthStorageContext';
 const scrollViewStyle = {
   flexDirection: 'row',
   flexGrow: 1,
+  alignContent: 'space-between',
 };
+const appBarTabStyle = {
+  paddingHorizontal: 20,
+}
 
 const AppBarTab = ({ style }) => {
   const { authorizedUser } = useGetUser();
@@ -35,9 +39,18 @@ const AppBarTab = ({ style }) => {
                 <Text fontSize='subheading' color='secondary'>Sign Out</Text>
               </TouchableHighlight>
             </> :
-            <Link to='/signin' component={TouchableHighlight}>
-              <Text fontSize='subheading' color='secondary'>Sign In</Text>
-            </Link>
+            <>
+              <View style={appBarTabStyle}>
+                <Link to='/signin' component={TouchableHighlight}>
+                  <Text fontSize='subheading' color='secondary'>Sign In</Text>
+                </Link>
+              </View>
+              <View style={appBarTabStyle}>
+                <Link to='/signup' component={TouchableHighlight}>
+                  <Text fontSize='subheading' color='secondary'>Sign Up</Text>
+                </Link>
+              </View>
+            </>
           }
         </>
       </ScrollView>

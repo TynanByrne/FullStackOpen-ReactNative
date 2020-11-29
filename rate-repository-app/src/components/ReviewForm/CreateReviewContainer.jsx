@@ -9,18 +9,18 @@ const initialValues = {
   text: '',
 }
 
-const CreateReviewContainer = ({ styles, validationSchema, onSubmit}) => {
+const CreateReviewContainer = ({ styles, validationSchema, onSubmit }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}>
-        {({ handleSubmit }) => (
-          <CreateReviewForm
-            styles={styles}
-            onSubmit={handleSubmit} />
-          )}
-      </Formik>
+      {({ handleSubmit }) => (
+        <CreateReviewForm
+          styles={styles}
+          onSubmit={handleSubmit} />
+      )}
+    </Formik>
   );
 };
 
