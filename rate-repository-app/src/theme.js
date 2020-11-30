@@ -8,6 +8,7 @@ const theme = {
     primary: '#011627',
     secondary: '#2EC4B6',
     backgroundPrimary: '#FDFFFC',
+    backgroundGreyed: '#d3d3d3',
     error: '#D73A4A'
   },
   fontSizes: {

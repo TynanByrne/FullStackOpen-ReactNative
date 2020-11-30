@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Link } from 'react-router-native';
 import theme from '../../theme';
+import ListHeader from './ListHeader';
 import RepositoryItem from './RepositoryItem';
 
 const styles = StyleSheet.create({
@@ -23,13 +24,14 @@ const RepositoryListContainer = ({ repositories }) => {
   }
 
   const repositoryNodes = repositories
-    ? repositories?.edges.map(edge => edge.node)
+    ? repositories?.edges?.map(edge => edge.node)
     : [];
 
   return (
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
+      ListHeaderComponent={ListHeader}
       renderItem={({ item }) => (
         <Link to={`/repository/${item.id}`} component={TouchableOpacity}>
           <View key={item.id}>
