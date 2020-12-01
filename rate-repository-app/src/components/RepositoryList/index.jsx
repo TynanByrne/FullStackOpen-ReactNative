@@ -5,7 +5,7 @@ import RepositoryListContainer from './RepositoryListContainer';
 const RepositoryList = () => {
   const [sort, setSort] = useState();
   const [variables, setVariables] = useState();
-  const { repositories } = useRepositories();
+  const { repositories } = useRepositories(variables);
 
   const onPress = (variables, sortType) => {
     setVariables(variables);
@@ -15,6 +15,7 @@ const RepositoryList = () => {
   return <RepositoryListContainer 
     repositories={repositories}
     sort={sort}
+    variables={variables}
     onPress={onPress} />
 };
 

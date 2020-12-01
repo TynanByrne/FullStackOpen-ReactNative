@@ -8,6 +8,7 @@ import theme from '../theme';
 import SingleRepository from './SingleRepository';
 import CreateReview from './ReviewForm';
 import SignUp from './SignUp';
+import { Provider } from 'react-native-paper';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.mainBackground,
@@ -18,27 +19,32 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <View style={styles.container}>
-      <AppBar />
-      <Switch>
-        <Route path='/' exact>
-          <RepositoryList />
-        </Route>
-        <Route path='/signin'>
-          <SignIn />
-        </Route>
-        <Route path='/signup'>
-          <SignUp />
-        </Route>
-        <Route path='/repository/:id' exact>
-          <SingleRepository />
-        </Route>
-        <Route path='/createreview'>
-          <CreateReview />
-        </Route>
-        <Redirect to='/' />
-      </Switch>
-    </View>
+
+      <View style={styles.container}>
+        <AppBar />
+        <Switch>
+          <Route path='/' exact>
+            <Provider>
+              <RepositoryList />
+              </Provider>
+            
+          </Route>
+          <Route path='/signin'>
+            <SignIn />
+          </Route>
+          <Route path='/signup'>
+            <SignUp />
+          </Route>
+          <Route path='/repository/:id' exact>
+            <SingleRepository />
+          </Route>
+          <Route path='/createreview'>
+            <CreateReview />
+          </Route>
+          <Redirect to='/' />
+        </Switch>
+      </View>
+
   );
 };
 

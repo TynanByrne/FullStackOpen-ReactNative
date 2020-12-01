@@ -29,9 +29,7 @@ const styles = StyleSheet.create({
     width: "75%",
     top: "40%",
     left: "12.5%",
-  },
-  menuItem: {
-
+    zIndex: 2,
   },
 
 })
@@ -67,7 +65,7 @@ const DropdownMenu = ({ sort, onPress }) => {
 
   return (
     <>
-      {/* {visible && <View style={styles.backdrop} />} */}
+      {visible && <View style={styles.backdrop} />}
       <View style={styles.dropdown}>
         <Menu
           style={styles.menu}
@@ -81,15 +79,12 @@ const DropdownMenu = ({ sort, onPress }) => {
           <Menu.Item disabled title='Sort by:' />
           <Divider />
           <Menu.Item
-            style={styles.menuItem}
             onPress={() => selectSort('Latest repositories')}
             title='Latest Repositories' />
           <Menu.Item
-            style={styles.menuItem}
             onPress={() => selectSort('Highest rated repositories')}
             title='Highest rated repositories' />
           <Menu.Item
-            style={styles.menuItem}
             onPress={() => selectSort('Lowest rated repositories')}
             title='Lowest rated repositories' />
         </Menu>

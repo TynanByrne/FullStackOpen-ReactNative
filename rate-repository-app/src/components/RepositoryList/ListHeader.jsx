@@ -19,11 +19,9 @@ const styles = StyleSheet.create({
 
 const ListHeader = ({ sort, onPress }) => {
   return (
-    <Provider>
-      <View style={styles.header}>
+    <>
         <DropdownMenu sort={sort} onPress={onPress} />
-      </View>
-    </Provider>
+    </>
   );
 };
 
