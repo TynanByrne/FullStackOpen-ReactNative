@@ -8,19 +8,20 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     flexDirection: 'column',
-    padding: 40,
+    padding: 15,
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: theme.colors.backgroundGreyed,
-    color: theme.colors.backgroundPrimary
+    color: theme.colors.backgroundPrimary,
+    flex: 1,
   },
 })
 
-const ListHeader = ({ sort, setSort }) => {
+const ListHeader = ({ sort, onPress }) => {
   return (
     <Provider>
       <View style={styles.header}>
-        <DropdownMenu />
+        <DropdownMenu sort={sort} onPress={onPress} />
       </View>
     </Provider>
   );

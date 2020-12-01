@@ -12,12 +12,16 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: theme.colors.backgroundPrimary,
+  },
+  listHeader: {
+    zIndex: 10,
+    elevation: 1,
   }
 });
 
 export const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, onPress, sort }) => {
 
   if (!repositories) {
     return null;
@@ -31,7 +35,8 @@ const RepositoryListContainer = ({ repositories }) => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
-      ListHeaderComponent={ListHeader}
+      ListHeaderComponent={() => <ListHeader sort={sort} onPress={onPress}/>}
+      ListHeaderComponentStyle={styles.listHeader}
       renderItem={({ item }) => (
         <Link to={`/repository/${item.id}`} component={TouchableOpacity}>
           <View key={item.id}>
