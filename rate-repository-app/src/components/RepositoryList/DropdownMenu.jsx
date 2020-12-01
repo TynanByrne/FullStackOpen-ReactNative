@@ -43,7 +43,7 @@ const DropdownMenu = ({ sort, onPress }) => {
   const variablesConverter = (sortType) => {
     let variables;
     switch (sortType) {
-      case 'Latest respositories':
+      case 'Latest repositories':
         variables = { orderBy: 'CREATED_AT', orderDirection: 'DESC' };
         return variables;
       case 'Highest rated repositories':
@@ -73,7 +73,7 @@ const DropdownMenu = ({ sort, onPress }) => {
           onDismiss={closeMenu}
           anchor={
             <TouchableRipple onPress={openMenu}>
-              <Text color='textSecondary'>Sorting: {sort ? sort : 'Latest repositories'}</Text>
+              <Text color='textSecondary'>Sort by: {sort ? sort : 'Latest repositories'}</Text>
             </TouchableRipple>
           }>
           <Menu.Item disabled title='Sort by:' />

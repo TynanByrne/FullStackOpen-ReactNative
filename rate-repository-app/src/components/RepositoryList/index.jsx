@@ -5,7 +5,8 @@ import RepositoryListContainer from './RepositoryListContainer';
 const RepositoryList = () => {
   const [sort, setSort] = useState();
   const [variables, setVariables] = useState();
-  const { repositories } = useRepositories(variables);
+  const { repositories } = useRepositories({...variables});
+  console.log("SORT IS", sort, "VARIABLES IS", variables)
 
   const onPress = (variables, sortType) => {
     setVariables(variables);
