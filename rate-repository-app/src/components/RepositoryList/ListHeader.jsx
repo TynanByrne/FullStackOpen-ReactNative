@@ -1,8 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-native-paper';
 import DropdownMenu from './DropdownMenu';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import theme from '../../theme';
+import Searchbar from './Searchbar';
 
 const styles = StyleSheet.create({
   header: {
@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
   },
 })
 
-const ListHeader = ({ sort, onPress }) => {
+const ListHeader = ({ sort, onPress, onChangeSearch, searchQuery }) => {
   return (
     <>
-        <DropdownMenu sort={sort} onPress={onPress} />
+      <Searchbar searchQuery={searchQuery} onChangeSearch={onChangeSearch} />
+      <DropdownMenu sort={sort} onPress={onPress} />
     </>
   );
 };

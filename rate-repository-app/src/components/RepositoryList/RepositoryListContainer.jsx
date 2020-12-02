@@ -21,7 +21,59 @@ const styles = StyleSheet.create({
 
 export const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories, onPress, sort }) => {
+class RepositoryListContainer extends React.Component {
+  renderHeader = () => {
+    const { onPress, sort, onChangeSearch, searchQuery, variables } = this.props;
+
+    return (
+      <ListHeader
+        sort={sort}
+        onPress={onPress}
+        onChangeSearch={onChangeSearch}
+        searchQuery={searchQuery}
+        variables={variables} />
+    );
+  };
+
+  render() {
+    const { repositories } = this.props;
+    if (!repositories) {
+      return null;
+    }
+  
+    const repositoryNodes = repositories
+      ? repositories?.edges?.map(edge => edge.node)
+      : [];
+  
+    return (
+      <FlatList
+        data={repositoryNodes}
+        ItemSeparatorComponent={ItemSeparator}
+        ListHeaderComponent={this.renderHeader}
+        ListHeaderComponentStyle={styles.listHeader}
+        renderItem={({ item }) => (
+          <Link to={`/repository/${item.id}`} component={TouchableOpacity}>
+            <View key={item.id}>
+              <RepositoryItem
+                fullName={item.fullName}
+                description={item.description}
+                language={item.language}
+                forksCount={item.forksCount}
+                stargazersCount={item.stargazersCount}
+                ratingAverage={item.ratingAverage}
+                reviewCount={item.reviewCount}
+                url={item.ownerAvatarUrl}
+                style={styles.item}
+              />
+            </View>
+          </Link >
+        )}
+      />
+    );
+  }
+}
+
+/* const RepositoryListContainer = ({ repositories, onPress, sort, onChangeSearch, searchQuery, variables }) => {
 
   if (!repositories) {
     return null;
@@ -35,7 +87,11 @@ const RepositoryListContainer = ({ repositories, onPress, sort }) => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
-      ListHeaderComponent={() => <ListHeader sort={sort} onPress={onPress}/>}
+      ListHeaderComponent={() => <ListHeader
+          sort={sort}
+          onPress={onPress}
+          onChangeSearch={onChangeSearch}
+          searchQuery={searchQuery} />}
       ListHeaderComponentStyle={styles.listHeader}
       renderItem={({ item }) => (
         <Link to={`/repository/${item.id}`} component={TouchableOpacity}>
@@ -56,6 +112,6 @@ const RepositoryListContainer = ({ repositories, onPress, sort }) => {
       )}
     />
   );
-};
+}; */
 
 export default RepositoryListContainer;
