@@ -7,7 +7,10 @@ const RepositoryList = () => {
   const [sort, setSort] = useState();
   const [variables, setVariables] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
-  const { repositories } = useRepositories(variables);
+  const { repositories, fetchMore } = useRepositories({
+    first: 8,
+    ...variables,
+  });
   const [debouncedSearchQuery] = useDebounce(searchQuery, 300);
   console.log("SORT IS", sort, "VARIABLES IS", variables)
 
@@ -17,6 +20,11 @@ const RepositoryList = () => {
     setVariables(variables);
     setSort(sortType);
     setSearchQuery('');
+  }
+
+  const onEndReach = () => {
+    fetchMore();
+    console.log("The end of the list has been reached");
   }
 
   useEffect(() => {
@@ -30,7 +38,8 @@ const RepositoryList = () => {
     variables={variables}
     searchQuery={searchQuery}
     onChangeSearch={onChangeSearch}
-    onPress={onPress} />
+    onPress={onPress}
+    onEndReach={onEndReach} />
 };
 
 export default RepositoryList;

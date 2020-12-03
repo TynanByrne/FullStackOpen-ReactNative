@@ -36,7 +36,7 @@ class RepositoryListContainer extends React.Component {
   };
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, onEndReach } = this.props;
     if (!repositories) {
       return null;
     }
@@ -68,6 +68,8 @@ class RepositoryListContainer extends React.Component {
             </View>
           </Link >
         )}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.3}
       />
     );
   }
