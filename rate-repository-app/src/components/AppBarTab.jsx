@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-native';
 import { useApolloClient } from '@apollo/react-hooks';
 import useGetUser from '../hooks/useGetUser';
 import AuthStorageContext from '../contexts/AuthStorageContext';
+import { Appbar } from 'react-native-paper';
 
 
 const scrollViewStyle = {
@@ -13,7 +14,7 @@ const scrollViewStyle = {
   alignContent: 'space-between',
 };
 const appBarTabStyle = {
-  paddingHorizontal: 20,
+  paddingHorizontal: 8,
 }
 
 const AppBarTab = ({ style }) => {
@@ -32,12 +33,21 @@ const AppBarTab = ({ style }) => {
         <>
           {authorizedUser ?
             <>
-              <Link to='/createreview' component={TouchableHighlight}>
-                < Text fontSize='subheading' color='secondary'>Create a review</Text>
-              </Link>
-              <TouchableHighlight onPress={signOut}>
-                <Text fontSize='subheading' color='secondary'>Sign Out</Text>
-              </TouchableHighlight>
+              <View style={appBarTabStyle}>
+                <Link to='/createreview' component={TouchableHighlight}>
+                  < Text fontSize='subheading' color='secondary'>Create a review</Text>
+                </Link>
+              </View>
+              <View style={appBarTabStyle}>
+                <Link to='/myreviews' component={TouchableHighlight}>
+                  < Text fontSize='subheading' color='secondary'>My reviews</Text>
+                </Link>
+              </View>
+              <View style={appBarTabStyle}>
+                <TouchableHighlight onPress={signOut}>
+                  <Text fontSize='subheading' color='secondary'>Sign Out</Text>
+                </TouchableHighlight>
+              </View>
             </> :
             <>
               <View style={appBarTabStyle}>

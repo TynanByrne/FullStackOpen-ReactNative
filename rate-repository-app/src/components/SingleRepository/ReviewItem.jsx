@@ -21,7 +21,7 @@ const reviewStyles = StyleSheet.create({
   },
 })
 
-const ReviewItem = ({ review }) => {
+const ReviewItem = ({ review, myReview }) => {
   console.log("REVIEW IS", review)
   if (!review) {
     return null;
@@ -35,7 +35,11 @@ const ReviewItem = ({ review }) => {
           </View>
         </View>
         <View style={styles.titleColumn}>
-          <Text fontSize='subheading' fontWeight='bold'>{review.user.username}</Text>
+          {myReview ? (
+            <Text fontSize='subheading' fontWeight='bold'>{review.repository?.fullName}</Text>
+          ) : (
+            <Text fontSize='subheading' fontWeight='bold'>{review.user?.username}</Text>
+          )}
           <Text fontWeight='washed' testID='description'>{format(new Date(review.createdAt), 'dd/MM/yyyy')}</Text>
         </View>
       </View>
